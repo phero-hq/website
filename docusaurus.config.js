@@ -94,56 +94,68 @@ const config = {
           },
         ],
       },
-      // footer: {
-      //   style: "dark",
-      //   links: [
-      //     // {
-      //     //   title: "Docs",
-      //     //   items: [
-      //     //     {
-      //     //       label: "Tutorial",
-      //     //       to: "/docs/introduction",
-      //     //     },
-      //     //   ],
-      //     // },
-      //     {
-      //       title: "Community",
-      //       items: [
-      //         // {
-      //         //   label: 'Stack Overflow',
-      //         //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-      //         // },
+            footer: {
+                style: "dark",
+                links: [
+                    {
+                        title: "Docs",
+                        items: [
+                            {
+                                label: "Introduction",
+                                to: "/docs/introduction",
+                            },
+                            {
+                                label: "Getting Started",
+                                to: "/docs/Getting%20Started",
+                            },
+                            {
+                                label: "Using Phero",
+                                to: "/docs/Using%20Phero/Creating%20the%20server",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Join the community",
+                        items: [
       //         {
-      //           label: "Discord",
-      //           href: "https://discordapp.com/invite/TODO",
+                            //   label: 'Stack Overflow',
+                            //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
       //         },
+                            {
+                                label: "Discord",
+                                href: "https://discordapp.com/invite/TODO",
+                            },
+                            {
+                                label: "Twitter",
+                                href: "https://twitter.com/PheroHQ",
+                            },
+                        ],
+                    },
+                    {
+                        title: "Other",
+                        items: [
       //         {
-      //           label: "Twitter",
-      //           href: "https://twitter.com/PheroHQ",
-      //         },
-      //       ],
-      //     },
-      //     {
-      //       title: "More",
-      //       items: [
-      //         // {
-      //         //   label: 'Blog',
-      //         //   to: '/blog',
-      //         // },
-      //         {
-      //           label: "GitHub",
-      //           href: "https://github.com/facebook/docusaurus",
-      //         },
-      //       ],
-      //     },
-      //   ],
-      //   copyright: `Copyright © ${new Date().getFullYear()} Phero, Inc. Built with Docusaurus.`,
+                            //   label: 'Blog',
+                            //   to: '/blog',
       // },
+                            {
+                                label: "GitHub",
+                                href: "https://github.com/facebook/docusaurus",
+                            },
+                            {
+                                href: "https://www.youtube.com/channel/UCflq1gYzftJcPcIMYLA49hA",
+                                label: "YouTube",
+                            },
+                        ],
+                    },
+                ],
+                copyright: `Copyright © ${new Date().getFullYear()} Phero, Inc. Built with Docusaurus.`,
+            },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
-}
+};
 
-module.exports = config
+module.exports = config;
