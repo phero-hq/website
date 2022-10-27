@@ -94,68 +94,68 @@ const config = {
           },
         ],
       },
-            footer: {
-                style: "dark",
-                links: [
-                    {
-                        title: "Docs",
-                        items: [
-                            {
-                                label: "Introduction",
-                                to: "/docs/introduction",
-                            },
-                            {
-                                label: "Getting Started",
-                                to: "/docs/getting-started",
-                            },
-                            {
-                                label: "Using Phero",
-                                to: "/docs/using-phero/creating-the-server",
-                            },
-                        ],
-                    },
-                    {
-                        title: "Join the community",
-                        items: [
-      //         {
-                            //   label: 'Stack Overflow',
-                            //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-      //         },
-                            {
-                                label: "Discord",
-                                href: "https://discordapp.com/invite/TODO",
-                            },
-                            {
-                                label: "Twitter",
-                                href: "https://twitter.com/PheroHQ",
-                            },
-                        ],
-                    },
-                    {
-                        title: "Other",
-                        items: [
-      //         {
-                            //   label: 'Blog',
-                            //   to: '/blog',
-      // },
-                            {
-                                label: "GitHub",
-                                href: "https://github.com/facebook/docusaurus",
-                            },
-                            {
-                                href: "https://www.youtube.com/channel/UCflq1gYzftJcPcIMYLA49hA",
-                                label: "YouTube",
-                            },
-                        ],
-                    },
-                ],
-                copyright: `Copyright © ${new Date().getFullYear()} Phero. Built with Docusaurus.`,
-            },
+      footer: {
+        style: "dark",
+        links: [
+          {
+            title: "Docs",
+            items: [
+              {
+                label: "Introduction",
+                to: "/docs/introduction",
+              },
+              {
+                label: "Getting Started",
+                to: "/docs/getting-started",
+              },
+              {
+                label: "Using Phero",
+                to: "/docs/using-phero/creating-the-server",
+              },
+            ],
+          },
+          {
+            title: "Join the community",
+            items: [
+              //         {
+              //   label: 'Stack Overflow',
+              //   href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              //         },
+              {
+                label: "Discord",
+                href: "https://discordapp.com/invite/TODO",
+              },
+              {
+                label: "Twitter",
+                href: "https://twitter.com/PheroHQ",
+              },
+            ],
+          },
+          {
+            title: "Other",
+            items: [
+              //         {
+              //   label: 'Blog',
+              //   to: '/blog',
+              // },
+              {
+                label: "GitHub",
+                href: "https://github.com/facebook/docusaurus",
+              },
+              {
+                href: "https://www.youtube.com/channel/UCflq1gYzftJcPcIMYLA49hA",
+                label: "YouTube",
+              },
+            ],
+          },
+        ],
+        copyright: `Copyright © ${new Date().getFullYear()} Phero. Built with Docusaurus.`,
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
     }),
-};
+}
 
-module.exports = config;
+module.exports = config
