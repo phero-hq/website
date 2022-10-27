@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+title: "Creating the server"
 ---
 
 The entry point of a Phero server is the Phero-file. This TypeScript-file exports services, containing functions that return promises. An example of this could be:

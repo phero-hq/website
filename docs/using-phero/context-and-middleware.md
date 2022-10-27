@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+title: "Context and middleware"
 ---
 
 There are cases where all functions in a service need a certain piece of data or logic. You can use context and middleware together, to prevent duplicate code.

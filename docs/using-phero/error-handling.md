@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+title: "Error handling"
 ---
 
 Phero functions act like regular, local functions in your app. In that sense, you'd expect you can throw an error in the function and catch it in the client, right? Right!

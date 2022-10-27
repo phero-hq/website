@@ -62,7 +62,7 @@ const config = {
         logo: {
           alt: "Phero",
           src: "img/logo.svg",
-          href: "/docs/Introduction",
+          href: "/docs/introduction",
         },
         items: [
           // {
@@ -106,11 +106,11 @@ const config = {
                             },
                             {
                                 label: "Getting Started",
-                                to: "/docs/Getting%20Started",
+                                to: "/docs/getting-started",
                             },
                             {
                                 label: "Using Phero",
-                                to: "/docs/Using%20Phero/Creating%20the%20server",
+                                to: "/docs/using-phero/creating-the-server",
                             },
                         ],
                     },
@@ -149,7 +149,7 @@ const config = {
                         ],
                     },
                 ],
-                copyright: `Copyright © ${new Date().getFullYear()} Phero, Inc. Built with Docusaurus.`,
+                copyright: `Copyright © ${new Date().getFullYear()} Phero. Built with Docusaurus.`,
             },
       prism: {
         theme: lightCodeTheme,

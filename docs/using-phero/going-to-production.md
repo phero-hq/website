@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+title: "Going to production"
 ---
 
 There's a production-level server built into Phero. To get a bundle of this server, together with your server code, run the following:

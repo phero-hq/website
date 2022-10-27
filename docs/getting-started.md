@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+title: "Getting Started"
 ---
 
 Let's setup an example project of a server and client with the following structure:
