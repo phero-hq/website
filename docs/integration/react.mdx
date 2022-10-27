@@ -72,7 +72,7 @@ const phero = new PheroClient(window.fetch.bind(this))
 
 function Component() {
   const { data, error } = useSWR('message', () =>
-    phero.messageService.sayHello("John")
+    phero.messageService.sayHello("John"),
   )
 
   if (error)
@@ -95,7 +95,9 @@ const key = {
 }
 
 function Component() {
-  const { data, error } = useSWR(key.message, phero.messageService.sayHello)
+  const { data, error } = useSWR(key.message, () =>
+    phero.messageService.sayHello("John"),
+  )
   // ...
 }
 ```
@@ -134,7 +136,9 @@ const key = {
 }
 
 function Component() {
-  const query = useQuery(key.message, phero.messageService.sayHello)
+  const { data, isError, isLoading } = useQuery(key.message, () =>
+    phero.helloWorldService.helloWorld("Sarah"),
+  )
   // ...
 }
 ```
