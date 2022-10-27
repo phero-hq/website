@@ -1,0 +1,140 @@
+---
+title: "Integrating Phero with React"
+---
+
+As you might know, Phero takes your TypeScript on the backend and generates a type-safe client for your frontend. If you're new to this, be sure to check out the [introduction page](/docs/introduction) to find out more. If you already know this, keep reading.
+
+In a way, there's nothing special about the `PheroClient`. Once initialized, it gives you a set of functions that return promises. To take a deep-dive into how this works, check out [Using the client](/docs/using-phero/using-the-client). For explaining how to integrate the client with React, we'll assume you know the basics.
+
+Let's start with the server, where we've got the following Phero-file:
+
+```ts
+import { createService } from "@phero/client"
+
+async function sayHello(name: string): Promise<string> {
+  return `Hi there, ${name}!`
+}
+
+export const messageService = createService({ sayHello })
+```
+
+This will allow us to initialise and use the client like so:
+
+```ts
+import { PheroClient } from "./phero.generated"
+
+const fetch = window.fetch.bind(this) // or any fetch-lib you want
+const phero = new PheroClient(fetch)
+const hello = await phero.messageService.sayHello("John")
+```
+
+The great thing is, `phero.messageService.sayHello` is nothing more than a function returning a `Promise`. This means you can use it in the way you would use any local function.
+
+To use an `async` function inside of your component, you've got a lot of different options. To get you started, we've explained a couple of those below. But remember: It doesn't matter to Phero, there're regular functions like any other.
+
+## `useEffect`
+
+One way of fetching async data is by using `useEffect`:
+
+```tsx
+import { useEffect } from "react"
+
+const phero = new PheroClient(window.fetch.bind(this))
+
+function Component() {
+  const [message, setMessage] = useState<string>()
+  const [error, setError] = useState<unknown>()
+
+  useEffect(() => {
+    phero.messageService.sayHello()
+      .then(setMessage)
+      .catch(setError)
+  }, [])
+
+  if (error)
+    return <p>Something went wrong</p>
+  } else if (!message) {
+    return <p>Loading message...</p>
+  } else {
+    return <p>{message}</p>
+  }
+}
+```
+
+## SWR
+
+Another way is to use [SWR](https://swr.vercel.app), and give it our function as the fetcher:
+
+```tsx
+import useSWR from 'swr'
+
+const phero = new PheroClient(window.fetch.bind(this))
+
+function Component() {
+  const { data, error } = useSWR('message', () =>
+    phero.messageService.sayHello("John")
+  )
+
+  if (error)
+    return <p>Something went wrong</p>
+  } else if (!data) {
+    return <p>Loading message...</p>
+  } else {
+    return <p>{data}</p>
+    //         ^^^^ The type of this is `string`, because `sayHello` returns a `Promise<string>`
+  }
+}
+```
+
+We recommend defining an object to keep track of your cache-keys and keep it type-safe:
+
+```ts
+const key = {
+  message: "message",
+  user: (id: string) => ["user", id],
+}
+
+function Component() {
+  const { data, error } = useSWR(key.message, phero.messageService.sayHello)
+  // ...
+}
+```
+
+## TanStack Query
+
+You could also go with [TanStack Query](https://tanstack.com/query/v4/?from=reactQueryV3&original=https://react-query-v3.tanstack.com/), and give it our function as the second parameter:
+
+```tsx
+import { useQuery } from '@tanstack/react-query'
+
+const phero = new PheroClient(window.fetch.bind(this))
+
+function Component() {
+  const { data, isError, isLoading } = useQuery(["message"], () =>
+    phero.helloWorldService.helloWorld("Sarah"),
+  )
+
+  if (isError)
+    return <p>Something went wrong</p>
+  } else if (isLoading) {
+    return <p>Loading message...</p>
+  } else {
+    return <p>{data}</p>
+    //         ^^^^ The type of this is `string`, because `sayHello` returns a `Promise<string>`
+  }
+}
+```
+
+We recommend defining an object to keep track of your cache-keys and keep it type-safe:
+
+```ts
+const key = {
+  message: ["message"],
+  user: (id: string) => `user/${id}`,
+}
+
+function Component() {
+  const query = useQuery(key.message, phero.messageService.sayHello)
+  // ...
+}
+```
