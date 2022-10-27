@@ -32,7 +32,7 @@ The great thing is, `phero.messageService.sayHello` is nothing more than a funct
 
 To use an `async` function inside of your component, you've got a lot of different options. To get you started, we've explained a couple of those below. But remember: It doesn't matter to Phero, there're regular functions like any other.
 
-## `useEffect`
+## useEffect
 
 One way of fetching async data is by using `useEffect`:
 
@@ -130,7 +130,7 @@ We recommend defining an object to keep track of your cache-keys and keep it typ
 ```ts
 const key = {
   message: ["message"],
-  user: (id: string) => `user/${id}`,
+  user: (id: string) => ["user", id],
 }
 
 function Component() {
