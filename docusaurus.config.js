@@ -140,7 +140,7 @@ const config = {
               // },
               {
                 label: "GitHub",
-                href: "https://github.com/facebook/docusaurus",
+                href: "https://github.com/phero-hq/phero",
               },
               {
                 href: "https://www.youtube.com/channel/UCflq1gYzftJcPcIMYLA49hA",
