@@ -41,7 +41,7 @@ At this moment, there is an additional step of configuration needed. Add these l
 {
   "compilerOptions": {
     ...
-    "sourceRoot": "src",
+    "rootDir": "src",
     "outDir": "dist"
   }
 }
