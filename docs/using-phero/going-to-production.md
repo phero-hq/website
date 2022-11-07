@@ -6,7 +6,7 @@ There's a production-level server built into Phero. To get a bundle of this serv
 
 ```
 cd ./server
-npx phero server export
+npx phero@latest server export
 ```
 
 This bundles everything you need to run the production server into a `.build` directory. The server can be started like any other NodeJS server:
