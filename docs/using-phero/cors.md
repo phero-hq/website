@@ -1,26 +1,6 @@
 ---
-title: "Going to production"
+title: "CORS"
 ---
-
-There's a production-level server built into Phero. To get a bundle of this server, together with your server code, run the following:
-
-```
-cd ./server
-npx phero server export
-```
-
-This bundles everything you need to run the production server into a `.build` directory. The server can be started like any other NodeJS server:
-
-```
-cd ./.build
-node index.js
-```
-
-:::info
-Special flavors of export for platforms like AWS, Azure and Google Cloud are coming soon. The currently exported server can run on any plain NodeJS server.
-:::
-
-## CORS
 
 To allow web clients to connect to a server, its origin needs to be configured on the server (like any NodeJS server). For more information about this subject, take a look at [MDN](https://developer.mozilla.org/en-US/docs/Glossary/CORS). Provide a Phero service with a domain whitelist to make this work:
 
