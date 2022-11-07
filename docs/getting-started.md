@@ -24,7 +24,7 @@ npm install typescript --save-dev
 npx tsc --init
 ​
 # Add Phero to your backend project:
-npx phero init server
+npx phero@latest init server
 ```
 
 Running the `phero init server` command does a couple of things:
@@ -64,7 +64,7 @@ npm install typescript --save-dev
 npx tsc --init
 
 # Add Phero to your frontend project:
-npx phero init client
+npx phero@latest init client
 ```
 
 This does the following:
@@ -77,11 +77,11 @@ You can do these steps manually as well. It's up to you what you want to do with
 
 ## Step 3: Run the development environment
 
-Now would be a great time to run `npx phero` in the root of your project:
+Now would be a great time to run `npx phero@latest` in the root of your project:
 
 ```
 cd ../
-npx phero
+npx phero@latest
 ```
 
 This will do the following:
