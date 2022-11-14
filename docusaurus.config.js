@@ -34,7 +34,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
-          sidebarCollapsible: false,
+          // sidebarCollapsible: false,
         },
         // blog: {
         //   showReadingTime: true,
