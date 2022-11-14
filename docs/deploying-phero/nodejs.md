@@ -28,7 +28,7 @@ This will generate a node script for each of your services in a `.phero` directo
   node index.js
 ```
 
-That's it! From here you can deploy this bundle to any provider that supports NodeJS.
+That's it! From here you can deploy this service to any provider that supports NodeJS.
 
 ## Change the port number
 

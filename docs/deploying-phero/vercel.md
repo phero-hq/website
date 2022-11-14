@@ -20,7 +20,7 @@ npx phero@latest server export --flavor vercel
 
 This will generate a `.vercel` directory, with all the code necessary to deploy.
 
-To deploy this bundle, run:
+To deploy the services, run:
 
 ```
   npx vercel@latest deploy --prebuilt
