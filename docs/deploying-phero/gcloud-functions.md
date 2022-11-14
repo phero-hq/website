@@ -25,14 +25,14 @@ To make an export of your Phero services, run:
 npx phero@latest server export --flavor gcloud-functions
 ```
 
-This will output an `export` directory with a directory for each `service`. To deploy one of these services, run:
+This will output a `.phero` directory with a directory for each `service`. To deploy one of these services, run:
 
 ```
 gcloud functions deploy helloWorldService \
   --entry-point helloWorldService \
   --trigger-http \
   --runtime nodejs16 \
-  --source "./export/helloWorldService"
+  --source ".phero/helloWorldService"
 ```
 
 Note that this example deploys a Google Cloud Function called `helloWorldService`. You probably have named your service something else ;). Replace `helloWorldService` with the name of your service.

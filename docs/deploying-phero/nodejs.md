@@ -20,10 +20,10 @@ To export as a NodeJS server, run:
 npx phero@latest server export --flavor nodejs
 ```
 
-This will generate a node script for each of your services in an `export` directory. To run one of these services:
+This will generate a node script for each of your services in a `.phero` directory. To run one of these services:
 
 ```
-  cd ./export/helloWorldService
+  cd .phero/helloWorldService
   npm i
   node index.js
 ```
