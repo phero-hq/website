@@ -77,7 +77,7 @@ function requireUser(
   if (!user) {
     throw new Error('Authentication error')
   }
-  await next({ user.uid })
+  await next({ userId: user.uid })
 }
 
 async function createArticle(
