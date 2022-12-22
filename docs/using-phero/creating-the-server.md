@@ -15,7 +15,7 @@ export const helloWorldService = createService({ helloWorld })
 ```
 
 :::info
-An explicit `Promise` return-type is required here
+An explicit `Promise` return-type is required on a Phero-function.
 :::
 
 We're exporting a service called `helloWorldService`, containing a `helloWorld` function. The names of services and functions define how you can call them in the client. For the example above, this would be:
