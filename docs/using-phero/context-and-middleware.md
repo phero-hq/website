@@ -116,7 +116,7 @@ const client = new PheroClient(fetch, PHERO_URL, {
   }
 });
 
-await client.articleService.deleteArticle('123')info
+await client.articleService.deleteArticle('123')
 ```
 
 ## Third party libraries
