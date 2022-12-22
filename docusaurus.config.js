@@ -116,6 +116,10 @@ const config = {
                 label: "Deploying Phero",
                 to: "/docs/deploying-phero/nodejs",
               },
+              {
+                label: "Comparisons",
+                to: "/docs/comparisons/tRPC",
+              },
             ],
           },
           {
