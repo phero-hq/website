@@ -105,12 +105,16 @@ const config = {
                 to: "/docs/introduction",
               },
               {
-                label: "Getting Started",
-                to: "/docs/getting-started",
-              },
-              {
                 label: "Using Phero",
                 to: "/docs/using-phero/creating-the-server",
+              },
+              {
+                label: "Integration guides",
+                to: "/docs/integration/react",
+              },
+              {
+                label: "Deploying Phero",
+                to: "/docs/deploying-phero/nodejs",
               },
             ],
           },

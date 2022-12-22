@@ -16,11 +16,11 @@ const sidebars = {
   // By default, Docusaurus generates a sidebar from the docs folder structure
   docSidebar: [
     "introduction",
-    "getting-started",
     {
       type: "category",
       label: "Using Phero",
       items: [
+        "using-phero/getting-started",
         "using-phero/creating-the-server",
         "using-phero/using-the-client",
         "using-phero/error-handling",
