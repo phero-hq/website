@@ -36,13 +36,13 @@ const config = {
           sidebarPath: require.resolve("./sidebars.js"),
           // sidebarCollapsible: false,
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
-        // },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          // Remove this to remove the "edit this page" links.
+          // editUrl:
+          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -65,13 +65,16 @@ const config = {
           href: "/docs/introduction",
         },
         items: [
-          // {
-          //   type: "doc",
-          //   docId: "Introduction",
-          //   position: "left",
-          //   label: "Docs",
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
+          {
+            to: "/docs/introduction",
+            label: "Docs",
+            position: "left",
+          },
+          {
+            to: "/blog",
+            label: "Blog",
+            position: "left",
+          },
           {
             href: "https://www.youtube.com/channel/UCflq1gYzftJcPcIMYLA49hA",
             label: "YouTube",
@@ -134,10 +137,10 @@ const config = {
           {
             title: "Other",
             items: [
-              //         {
-              //   label: 'Blog',
-              //   to: '/blog',
-              // },
+              {
+                label: "Blog",
+                to: "/blog",
+              },
               {
                 label: "GitHub",
                 href: "https://github.com/phero-hq/phero",
