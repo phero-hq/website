@@ -57,6 +57,10 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        respectPrefersColorScheme: true,
+        disableSwitch: true,
+      },
       navbar: {
         title: "Phero",
         logo: {
@@ -108,12 +112,20 @@ const config = {
                 to: "/docs/introduction",
               },
               {
-                label: "Getting Started",
-                to: "/docs/getting-started",
-              },
-              {
                 label: "Using Phero",
                 to: "/docs/using-phero/creating-the-server",
+              },
+              {
+                label: "Integration guides",
+                to: "/docs/integration/react",
+              },
+              {
+                label: "Deploying Phero",
+                to: "/docs/deploying-phero/nodejs",
+              },
+              {
+                label: "Comparisons",
+                to: "/docs/comparisons/tRPC",
               },
             ],
           },
