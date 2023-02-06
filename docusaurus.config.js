@@ -95,6 +95,11 @@ const config = {
             position: "right",
           },
           {
+            href: "https://mastodon.social/@phero_dev",
+            label: "Mastodon",
+            position: "right",
+          },
+          {
             href: "https://github.com/phero-hq/phero",
             label: "GitHub",
             position: "right",
@@ -143,6 +148,10 @@ const config = {
               {
                 label: "Twitter",
                 href: "https://twitter.com/PheroHQ",
+              },
+              {
+                label: "Mastodon",
+                href: "https://mastodon.social/@phero_dev",
               },
             ],
           },
