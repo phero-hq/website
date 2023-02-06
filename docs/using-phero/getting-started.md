@@ -77,26 +77,18 @@ You can do these steps manually as well. It's up to you what you want to do with
 
 ## Step 3: Run the development environment
 
-Now would be a great time to run `npx phero` in the root of your project:
+Now would be a great time to run the Phero CLI. This will look for projects where Phero-packages are installed and do either of the following things:
 
-```
-cd ../
-npx phero
-```
+- When `@phero/server` is installed in a project:
+  - Your `phero.ts` file (and all dependencies) will be monitored for changes.
+  - A new `phero-manifest.d.ts` will be generated when anything changes.
+  - The server will start to handle incoming requests.
+- When `@phero/client` is installed in a project:
+  - It will look for a running server and monitor it for changes.
+  - As soon as a change is detected, an updated client will be generated.
 
-This will do the following:
+There are multiple ways the CLI can find a project. For the projects described above, this will be:
 
-- Run the server in `./api`.
-- Watch your Phero-file at `./api/src/phero.ts`.
-- Generate a client to `./app/src/phero.generated.ts`.
-- Keep everything up-to-date as your Phero-file changes.
-
-:::note
-You can also install phero globally if that's your taste:
-
-```
-  $ npm i -g phero
-  $ phero
-```
-
-:::
+- When the current directory itself is a project where one of the packages is installed, it will run what's needed for that. So if we run `cd ./api && npx phero`, it will run the server.
+- When one of the directories directly below the current directory has one of the packages installed, it will run what's needed for all of them at the same time: The server in `./api` and the client in `./app`.
+- When there's a `package.json` with a `workspaces` property in the current directory (typically the root of your repo), it will run what's needed for all of them.
