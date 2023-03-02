@@ -6,11 +6,10 @@ There are cases where all functions in a service need a certain piece of data or
 
 **Context:** A typed object, shared across the functions of a service. It can be created from the client and server. From that point, middleware can modify this object before it ends up at a function of the service.
 
-**Middleware:** A function that modifies the context. Recieves the previous context and the parameters of the functions of the service. Also recieves a `next` function, which should always be called to continue to the next middleware. It looks like this:
+**Middleware:** A function that modifies the context. Recieves the previous context of the service. Also recieves a `next` function, which should always be called to continue to the next middleware. It looks like this:
 
 ```ts
 function exampleMiddleware(
-  params: PheroParams, // the params of the function of the service
   context: PheroContext, // the context, built up until this point
   next: NextFunction, // to be called to go to continue
 ) {
@@ -30,6 +29,7 @@ For this example, we'll assume that the client has authentication already implem
 
 ```ts
 import { createService } from "@phero/server"
+import { verifyIdToken } from "some-auth-library"
 import db, { Article, User } from "./fake-db"
 
 function requireUser(idToken: string) {
@@ -64,12 +64,11 @@ await client.articleService.deleteArticle("123", idToken)
 This works, but it could get messy and you should be extra careful not to forget to add the `requireUser` for every function. With context and middleware, it becomes something like this:
 
 ```ts
-import { createService, PheroParams, PheroContext, NextFunction } from '@phero/server'
+import { createService, PheroContext, NextFunction } from '@phero/server'
 import { verifyIdToken } from 'some-auth-library'
 import db, { Article, User } from './fake-db'
 
 function requireUser(
-  params: PheroParams, // not used in this middleware
   context: PheroContext<{ idToken: string }>, // we expect a `idToken` to be on the incoming context
   next: NextFunction<{ userId: string }>, // we'll be adding `userId` to the context, to be used later on
 ): User {
@@ -124,16 +123,10 @@ await client.articleService.deleteArticle('123')
 Context doesn't need to start on the client, in some cases it's useful on the server alone. This could be a third-party library where you need an instance for. You could initiate it once in a separate file and import it in your Phero functions, but you can also use context and middleware for that:
 
 ```ts
-import {
-  createService,
-  PheroParams,
-  PheroContext,
-  NextFunction,
-} from "@phero/server"
+import { createService, PheroContext, NextFunction } from "@phero/server"
 import someDB from "some-db-library"
 
 function databaseMiddleware(
-  params: PheroParams, // not used in this middleware
   context: PheroContext, // not used in this middleware
   next: NextFunction<{ db: DB }>, // we'll be adding `db` to the context, to be used later on
 ): User {
@@ -171,16 +164,10 @@ export const articleService = createService(
 Middleware does not have to work together with context, in some cases it's enough on its own. Take logging for example:
 
 ```ts
-import {
-  createService,
-  PheroParams,
-  PheroContext,
-  NextFunction,
-} from "@phero/server"
+import { createService, PheroContext, NextFunction } from "@phero/server"
 import logger from "some-log-library"
 
 function logMiddleware(
-  params: PheroParams, // not used in this middleware
   context: PheroContext, // not used in this middleware
   next: NextFunction, // not used in this middleware
 ): User {
@@ -221,7 +208,6 @@ import logger from "some-log-library"
 import someDB from "some-db-library"
 
 function logMiddleware(
-  params: PheroParams, // not used in this middleware
   context: PheroContext, // not used in this middleware
   next: NextFunction, // not used in this middleware
 ): User {
@@ -232,7 +218,6 @@ function logMiddleware(
 }
 
 function databaseMiddleware(
-  params: PheroParams, // not used in this middleware
   context: PheroContext, // not used in this middleware
   next: NextFunction<{ db: DB }>, // we'll be adding `db` to the context, to be used later on
 ): User {
@@ -241,7 +226,6 @@ function databaseMiddleware(
 }
 
 function requireUser(
-  params: PheroParams, // not used in this middleware
   context: PheroContext<{ db: DB; idToken: string }>, // we expect a `db` and `idToken` to be on the incoming context
   next: NextFunction<{ user: User }>, // we'll be adding `user` to the context, to be used later on
 ): User {
