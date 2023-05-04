@@ -23,7 +23,11 @@ This will generate a `.vercel` directory, with all the code necessary to deploy.
 To deploy the services, run:
 
 ```
-  npx vercel@latest deploy --prebuilt
+npx vercel@latest deploy --prebuilt
 ```
 
 That's it! For each subsequent deploy you can repeat the steps above.
+
+:::info
+If you're using Yarn or pnPM, don't forget to configure the install command in your [Build and Development Settings](https://vercel.com/docs/concepts/deployments/configure-a-build#build-and-development-settings).
+:::
